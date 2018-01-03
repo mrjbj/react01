@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>From Readct Quickly Book</title>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+      // React component defined via class
+      // render returns only one element
+      
+      // JSX activates upon token "greater than" token
+      // '{' symbol puts into JavaScript mode
+      //  this.props is injected in via constructor
+
+      class HelloWorld extends React.Component {
+            render() {
+                return ( 
+                    <h1 {...this.props}>
+                       Hello {this.props.frameworkName}
+                    </div>
+                )
+            }
+        class ProfileLink extends React.Component {
+            render () {
+                return <a href={this.props.url} 
+                        title = {this.props.label}
+                        target = {" _blank"}>Profile</a>
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                < HelloWorld
+                  xid = "ember"
+                  title = "A framework for ambitious web applications"
+                  data - frameworkName = "Ember.js" / >
+                < HelloWorld
+                  id = "backbone"
+                  title = "Backbone.js gives structure to web applications"
+                  data - frameworkName = "Backbone.js" / >
+                < HelloWorld
+                  id = "angular"
+                  title = "Superheroic JavaScript MVC framework"
+                  data - frameworkName = "Angular.js" / >
+             </div>,
+            document.getElementById('content')
+        )
+    </script>
+</body>
+</html>

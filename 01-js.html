@@ -1,0 +1,33 @@
+<div id='root'></div>
+<script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<script type="text/babel">
+    const rootElement = document.getElementById('root')
+    // const element = React.createElement(
+    //     'div', {
+    //         className: 'container',
+    //         children: 'first'
+    //     }, 
+    //     'second', 'third'
+    // )
+    // JSX approach below
+    const content = "Hello Dude"
+    const myClassName = "container"
+    const Message =  (props) => <div>{props.children}</div>
+    const props = {
+        className: 'container',
+        children: 'Hello from property object variable'
+    }
+    const element = 
+        <div className={myClassName}>
+            <Message>You say goodbye...
+                <Message>Nested message component</Message>
+            </Message>
+            <Message>and I say hello!</Message>
+        </div> 
+    
+    console.log(element)
+    ReactDOM.render(element, rootElement)
+</script>

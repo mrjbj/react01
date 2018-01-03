@@ -1,0 +1,65 @@
+<div id='root'></div>
+<script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<script type="text/babel">
+    // const propTypes = {
+    //     string(props, propName, componentName) {
+    //         if (typeof props[propName] !== 'string') {
+    //             return new Error(
+    //                 `Hey, you should pass a string for ${propName} but you passed ${typeof props[propName]} instead!`
+    //             )
+    //         }
+    //     },
+    //     bool(props, propName, componentName) {
+    //         if (typeof props[propName] !== 'bool') {
+    //             return new Error( 
+    //                 `Dude, you should pass a bool for ${propName} but you passed ${typeof props[propName]} instead.`
+    //             )
+    //         }
+    //     }
+    // }
+    // React Component function 
+    function SayHello(props) {
+        return (
+            <div>
+                Hello {props.firstName}{' '} {props.lastName || 'Unknown'}!
+            </div>
+        )
+    }
+    // React Property type validator
+    SayHello.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired
+    }
+
+    // alternate component definition (using class)
+    class SayHello2 extends React.Component {
+        static propTypes = {
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired
+        }
+
+        render() {
+            const {firstName, lastName} = this.props
+            return (
+                <div>
+                    Hello {firstName} {lastName}!
+                </div>  
+            )
+        }
+    }
+    // console.log(`const propTypes = ` );
+    // //console.log(propTypes);
+    // console.log(`SayHello.propTypes = `);
+    // console.log(SayHello.propTypes);
+    // console.log(`SayHello = `);
+    // console.log(SayHello);
+
+    ReactDOM.render(
+        <SayHello2 firstName={"Jason Bruce"}  lastName="Jones" />, 
+        document.getElementById('root')
+    )
+</script>

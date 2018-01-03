@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>From Readct Quickly Book</title>
+    <script src="https://unpkg.com/react@16.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/babel">
+      class Clock extends React.Component {
+          constructor(props) {
+              super (props)
+              this.state = {
+                  currentTime: (new Date()).toLocaleString()
+              }
+              this.launchClock()
+          }
+          launchClock() {
+              setInterval (() => {
+                  console.log('Updating time...')
+                  this.setState({
+                      currentTime: (new Date()).toLocaleString()
+                  })
+              }, 5000)
+          }
+          render() {
+              console.log('rendering clock...')
+              return <div>{this.state.currentTime}</div>
+          }
+      }
+      ReactDOM.render(
+              <div>
+                  <Clock />
+              </div>,
+          document.getElementById('content')
+      )
+    </script>
+</body>
+</html>
